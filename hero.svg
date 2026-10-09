@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="830" height="260" viewBox="0 0 830 260" font-family="Cascadia Mono, Consolas, SFMono-Regular, Menlo, Microsoft YaHei UI, monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101016"/>
+      <stop offset="0.55" stop-color="#15151c"/>
+      <stop offset="1" stop-color="#1b1b25"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#818cf8"/>
+      <stop offset="0.5" stop-color="#c084fc"/>
+      <stop offset="1" stop-color="#818cf8"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-1 0;1 0;-1 0" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- 缓慢漂移的网格 -->
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <clipPath id="winclip"><rect x="0" y="0" width="830" height="260" rx="14"/></clipPath>
+
+    <!-- 每一行文字用 clipPath 从左向右「擦」出来 = 打字机 -->
+    <clipPath id="c1"><rect x="34" y="52" width="0" height="26"><animate attributeName="width" values="0;92" begin="0.5s" dur="0.7s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c2"><rect x="34" y="82" width="0" height="26"><animate attributeName="width" values="0;196" begin="1.35s" dur="1.15s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c3"><rect x="34" y="142" width="0" height="26"><animate attributeName="width" values="0;136" begin="3.0s" dur="0.9s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c4"><rect x="34" y="172" width="0" height="26"><animate attributeName="width" values="0;116" begin="4.1s" dur="0.85s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c5"><rect x="34" y="202" width="0" height="26"><animate attributeName="width" values="0;160" begin="5.15s" dur="0.95s" fill="freeze"/></rect></clipPath>
+  </defs>
+
+  <!-- 窗口 -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1" begin="0.05s" dur="0.5s" fill="freeze"/>
+    <g clip-path="url(#winclip)">
+      <rect width="830" height="260" rx="14" fill="url(#bg)"/>
+      <g>
+        <rect x="-40" y="-40" width="910" height="340" fill="url(#grid)">
+          <animateTransform attributeName="transform" type="translate" values="0 0;34 34" dur="5s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <rect width="830" height="150" fill="url(#fade)"/>
+    </g>
+    <rect x="0.5" y="0.5" width="829" height="259" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+
+    <!-- 标题栏 -->
+    <rect width="830" height="34" rx="14" fill="#1c1c24"/>
+    <rect y="20" width="830" height="14" fill="#1c1c24"/>
+    <line x1="0" y1="34" x2="830" y2="34" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="22" cy="17" r="5.5" fill="#ff5f57"/>
+    <circle cx="41" cy="17" r="5.5" fill="#febc2e"/>
+    <circle cx="60" cy="17" r="5.5" fill="#28c840"/>
+    <text x="415" y="21" fill="#8a8a9c" font-size="12" text-anchor="middle">LinYu@GitHub</text>
+
+    <!-- 逐行打字 -->
+    <text x="34" y="70" font-size="15" fill="#7dd3a0" clip-path="url(#c1)">$ whoami</text>
+    <text x="34" y="100" font-size="15" fill="#ececf2" clip-path="url(#c2)">林鱼 —— 一个奇怪的人</text>
+    <text x="34" y="160" font-size="15" fill="#7dd3a0" clip-path="url(#c3)">$ ls ~/projects</text>
+    <text x="34" y="190" font-size="15" fill="#a5b4fc" clip-path="url(#c4)">betterPaste/</text>
+    <text x="34" y="220" font-size="15" fill="#a5b4fc" clip-path="url(#c5)">Xiaojingyu-QQbot/</text>
+
+    <!-- 闪烁光标（keyTimes 必须以 1 结尾，否则整条 animate 会被忽略） -->
+    <rect x="192" y="206" width="9" height="17" fill="#818cf8" opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.48;0.5;1" dur="1.05s" begin="5.2s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- 底部流动渐变线 -->
+    <rect x="0" y="257" width="830" height="3" fill="url(#accent)" opacity="0.9"/>
+  </g>
+</svg>
