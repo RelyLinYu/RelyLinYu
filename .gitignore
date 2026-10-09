@@ -1,0 +1,19 @@
+# ---- 私有 / 本地（绝不提交）----
+private/
+*.local
+关键信息速查.md
+
+# ---- 常见敏感文件 ----
+.env
+.env.*
+!.env.example
+data/
+budget.json
+*.jsonl
+*.bak
+*.bak-*
+
+# ---- 依赖与构建产物 ----
+node_modules/
+.venv/
+dist/
